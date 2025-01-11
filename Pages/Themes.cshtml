@@ -1,0 +1,21 @@
+﻿@page
+@model ThemesModel
+@{
+    ViewData["Title"] = "Услуги";
+}
+
+<div class="body">
+    @foreach (var item in Model.themes)
+    {
+        <div class="div_theme">
+            <img class="img_theme" src=@item.pathImage alt="картинки пока нет">
+            <span class="insade-body-text">
+                <h2>@item.theme</h2>
+                <p class="txt">@item.text</p>
+                <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis doloremque voluptatum repellat maxime libero quia inventore, magnam, aspernatur incidunt unde iste officia earum porro id et quasi dolorem! Quibusdam quod quas hic quos optio reiciendis impedit eum explicabo tenetur pariatur. Culpa, adipisci quasi! Quaerat excepturi, ullam nobis vitae delectus magni.</p>
+                <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis doloremque voluptatum repellat maxime libero quia inventore, magnam, aspernatur incidunt unde iste officia earum porro id et quasi dolorem! Quibusdam quod quas hic quos optio reiciendis impedit eum explicabo tenetur pariatur. Culpa, adipisci quasi! Quaerat excepturi, ullam nobis vitae delectus magni.</p>
+            </span>
+        </div>
+    }
+</div>
+

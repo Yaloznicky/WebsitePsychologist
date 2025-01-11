@@ -1,0 +1,212 @@
+/*html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+
+/* ===================================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Sober';
+    src: url('/fonts/Sober/Sober-Regular.otf'); /* IE9 Compat Modes */
+    src: url('/fonts/Sober/Sober-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/fonts/Sober/Sober-Regular.woff') format('woff'), /* Modern Browsers */
+    fonts/url('/fonts/Sober/Sober-Regular.woff2') format('woff2'), /* Modern Browsers */
+    url('/fonts/Sober/Sober-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-style: normal;
+    font-weight: normal;
+    /*text-rendering: optimizeLegibility;*/
+}
+
+@font-face {
+    font-family: 'Miamanueva';
+    src: url('/fonts/miamanueva/miamanueva.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/miamanueva/miamanueva.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/fonts/miamanueva/miamanueva.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-style: normal;
+    font-weight: normal;
+    /*text-rendering: optimizeLegibility;*/
+}
+
+/*========================= BODY STYLE =====================*/
+
+.txt {
+    margin: 20px;
+}
+
+.body {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    justify-items: center;
+
+    flex-wrap: wrap;
+}
+
+.insade-body-text {
+    display: inline-block;
+    justify-items: center;
+    text-align: justify;
+    width: 70%;
+    padding: 5px;
+    margin: 10px;
+    font-size: 1.3em;
+}
+
+.insade-body-img {
+    height: 500px;
+    width: 400px;
+    margin: 20px;
+}
+
+    .insade-body-img > img {
+        height: 500px;
+        width: 400px;
+        min-width: 35%;
+        border-radius: 3%;
+        box-shadow: 0 5px 20px #2f79c4;
+        object-fit:cover;
+    }
+
+/*========================= BODY STYLE =====================*/
+
+
+/*=================================== THEME ====================================*/
+
+.div_theme {
+    margin: 20px 150px;
+    display:flex;
+    align-items: center;
+    text-align:justify-all;
+}
+
+.img_theme {
+    height: 250px;
+    width: 350px;
+    border-radius: 50%;
+    box-shadow: 2px 3px 10px 0 #2f79c4;
+}
+
+@media (max-width:1000px) {
+    body {
+        /*background-color: cornflowerblue;*/
+    }
+
+    .div_theme {
+        display: contents;
+    }
+
+    .insade-body-img {
+
+    }
+
+    .insade-body-text {
+        width: 100%
+    }
+}
+
+/*=================================== THEME ====================================*/
+
+
+/*=================================== PRICE ====================================*/
+
+.div_card {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.card {
+    align-items: center;
+    justify-items: center;
+    border-radius: 5%;
+    height: 450px;
+    width: 375px;
+    display: grid;
+    grid-template-rows: 80px 80px 130px 100px;
+    margin: 20px;
+    padding: 20px 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #535353;
+    background: linear-gradient(to bottom right, rgba(108, 0, 128, 0.3), rgba(241, 173, 255, 0.2));
+    box-shadow: 2px 5px 15px 0 #2f79c4;
+}
+
+ul{
+    padding: 0;
+}
+
+ul>li {
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.btn {
+    border: none;
+    border-radius: 20px;
+    height: 80px;
+    width: 300px;
+    background: #b643d1;
+    background: linear-gradient(to right, #6d0081, 60%, #f2adff);
+    color: snow;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 5px 10px #2f79c4;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        transform: translate(0,-3px);
+        box-shadow: 0 10px 25px #2f79c4;
+        color: gold;
+    }
+
+/*=================================== PRICE ====================================*/
+
+/*=================================== REVIEWS ====================================*/
+
+.img_ava {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 2px 3px 10px 0 #2f79c4;
+}
+
+.text_reviews {
+    justify-items: center;
+    text-align: justify;
+    font-size: 1.3em;
+}
+
+/*=================================== REVIEWS ====================================*/
+

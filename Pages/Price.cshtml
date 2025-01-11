@@ -1,0 +1,52 @@
+﻿@page
+@model PriceModel
+@{
+    ViewData["Title"] = "Стоимость";
+}
+
+<div class="div_card">
+    <div class="card">
+        <h2>Первая консультация</h2>
+        <h1>Цена 2 000 руб.</h1>
+        <ul>
+            <li>Знакомимся</li>
+            <li>Уточняем запрос</li>
+            <li>Намечаем план психотерапии</li>
+            <li>Формируем доверительное и безопасное общение</li>
+        </ul>
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Оплатить</button>
+    </div>
+    <div class="card">
+        <h2>Разовая консультация</h2>
+        <h1>Цена 4 000 руб.</h1>
+        <ul>
+            При оплате каждой встречи отдельно
+        </ul>
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Оплатить</button>
+    </div>
+    <div class="card">
+        <h2>Пакет на 5 консультаций</h2>
+        <h1>Цена 18 000 руб.</h1>
+        <ul>
+            При оплате пакета стоимость одной консультации дешевле на 10%
+            <p class="txt">(3 600 руб. за одну встречу) </p>
+        </ul>
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Оплатить</button>
+    </div>
+</div>
+
+
+<!-- ==================== MODAL WINDOW ====================================== -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5>Данный функционал будет реализоваван в ближайшее время.</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Понятно</button>
+            </div>
+        </div>
+    </div>
+</div>

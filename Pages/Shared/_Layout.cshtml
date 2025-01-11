@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebsitePsychologist</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebsitePsychologist.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="singIn">
+            @if (ViewBag.Login != "")
+            {
+                <label class="signIn_lable signIn_blocks">@ViewBag.Login</label>
+                <input type="button" class="signIn_btn signIn_blocks" value="Выход" />
+            }
+            else{
+                <a class="signIn_blocks" href="/Registration">Регистрация нового пользователя</a>
+                <label class="signIn_lable signIn_blocks">Логин:</label>
+                <input type="text" class="signIn_text signIn_blocks" />
+                <label class="signIn_lable signIn_blocks">Пароль:</label>
+                <input type="password" class="signIn_text signIn_blocks " />
+                <input type="button" class="signIn_btn signIn_blocks" value="Вход" />
+            }
+        </div>
+
+        <div class="head">
+            <div>
+                <a href="/Index" class="title">
+                    <img class="icon" src="img/psy.png" alt="">
+                    <p class="site">Услуги психолога</p>
+                </a>
+            </div>
+            <nav class="menu">
+                <a href="/Index">Обо мне</a>
+                <a href="/Themes">Услуги</a>
+                <a href="/Price">Стоимость</a>
+                <a href="/Reviews">Отзывы</a>
+                <a href="/Contacts">Контакты</a>
+            </nav>
+        </div>
+
+        <div class="chapter">
+            <h3>@ViewBag.Title</h3>
+        </div>
+    </header> 
+
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer">
+        <div class="footer_text">
+            &copy; 2024 - WebsitePsychologist - <a asp-area="" asp-page="/Privacy">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
