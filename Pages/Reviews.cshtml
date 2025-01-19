@@ -1,26 +1,46 @@
-﻿@page
-@model ReviewsModel
+﻿@page "{handler?}"
+@model WebsitePsychologist.Pages.ReviewsModel
 @{
 	ViewData["Title"] = "Отзывы";
 }
 
 <div class="container">
-	<div class="hstack gap-2">
-		<img class="img_ava mt-5" src="/img/avatar_W.jpg" alt="" />
-		<div class="mt-5 p-3">
-			<h3>Логин</h3>
-			<p class="text-secondary">@Model.dateTime</p>
+	@foreach(var item in Model.reviews){
+		<div class="hstack gap-2">
+			<img class="img_ava mt-5" src="@item.Users.AvatarImage" alt="" />
+			<div class="mt-5 p-3">
+				<h3>@item.Users.Login</h3>
+				<p class="text-secondary">@item.DateTimeReview</p>
+			</div>
 		</div>
-	</div>
-		<p class="text_reviews">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci cumque impedit nobis, debitis, quis culpa temporibus distinctio sit saepe et fugit facere corporis voluptate at quidem, ratione recusandae itaque blanditiis id! Ut, aut dignissimos porro quis, ad suscipit. Perferendis culpa cupiditate nam tenetur earum illo fugiat voluptates sint similique?</p>
 
-	<div class="hstack gap-2">
-		<img class="img_ava mt-5" src="/img/avatar_M.jpg" alt="" />
-		<div class="mt-5 p-3">
-			<h3>Логин</h3>
-			<p class="text-secondary">@Model.dateTime</p>
-		</div>
-	</div>
-		<p class="text_reviews">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci cumque impedit nobis, debitis, quis culpa temporibus distinctio sit saepe et fugit facere corporis voluptate at quidem, ratione recusandae itaque blanditiis id! Ut, aut dignissimos porro quis, ad suscipit. Perferendis culpa cupiditate nam tenetur earum illo fugiat voluptates sint similique?</p>
+		<p class="text_reviews mt-3">@item.Text</p>
 
+		@if (ViewBag.Login == "Admin")
+		{
+			<div class="row">
+				<form class="col-auto" method="get" asp-page="EditReview">
+					<button class="btn btn-primary mb-4" name="id" value="@item.Id">Исправить</button>
+				</form>
+				<form class="col-auto" method="get" asp-page-handler="Delete">
+					<button class="btn btn-danger mb-4" name="id" value="@item.Id">Удалить</button>
+				</form>
+			</div>
+		}
+	}
+</div>
+<div class="container">
+	<form class="mt-5" method="post">
+		<label class="form-label fs-3 text-primary">Вы можете отправить отзыв о работе специалиста</label>
+		<div class="fs-5 text-danger mb-3">Доступно только для зарегистрированных пользователей!</div>
+		<textarea class="form-control fs-5" rows="3" name="review" placeholder="Напишите здесь свой отзыв..."></textarea>
+		@if(ViewBag.Login == "")
+		{
+			<button class="btn btn-secondary mt-3 mb-3" type="button" disabled>Отправить отзыв</button>
+		}
+		else
+		{
+			<button class="btn btn-secondary mt-3 mb-3" type="submit">Отправить отзыв</button>
+		}
+	</form>
 </div>

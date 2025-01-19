@@ -1,0 +1,13 @@
+﻿@page "{handler?}"
+@model WebsitePsychologist.Pages.EditReviewModel
+@{
+}
+<div class="container">
+	<form class="mt-5" method="post">
+		<label class="form-label fs-3 text-primary">Редактирование отзыва</label>
+		<input type="hidden" name="id" value="@Model.editReview.Id"/>
+		<textarea class="form-control fs-5" rows="3" name="text">@Model.editReview.Text</textarea>
+		<button class="btn btn-primary mt-3 mb-3" type="submit" name="key" value="1">Сохранить</button>
+		<button class="btn btn-secondary mt-3 mb-3" type="submit">Отменить</button>
+	</form>
+</div>

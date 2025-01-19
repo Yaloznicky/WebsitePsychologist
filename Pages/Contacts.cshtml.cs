@@ -1,10 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebsitePsychologist.Services;
 
 namespace WebsitePsychologist.Pages
 {
-    public class ContactsModel(IUserService user) : PageModel
+    public class ContactsModel(IDbService db, IUserService user) : PageModel
     {
         public void OnGet()
         {

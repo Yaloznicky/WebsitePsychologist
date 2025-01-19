@@ -1,8 +1,26 @@
 ﻿@page
-@model IndexModel
+@model WebsitePsychologist.Pages.IndexModel
 @{
     ViewData["Title"] = "Обо мне";
 }
+
+@* @section Enter{
+    @if (ViewBag.Login != "")
+    {
+        <label class="signIn_lable signIn_blocks">@ViewBag.Login</label>
+        <input type="button" class="signIn_btn signIn_blocks" value="Выход" />
+    }
+    else
+    {
+        <a class="signIn_blocks" href="/Registration">Регистрация нового пользователя</a>
+        <label class="signIn_lable signIn_blocks">Логин:</label>
+        <input type="text" class="signIn_text signIn_blocks" />
+        <label class="signIn_lable signIn_blocks">Пароль:</label>
+        <input type="password" class="signIn_text signIn_blocks " />
+        <input type="button" class="signIn_btn signIn_blocks" value="Вход" />
+    }
+}
+ *@
 
 <div class="body">
     <div class="insade-body-img">

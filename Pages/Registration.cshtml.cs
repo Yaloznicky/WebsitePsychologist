@@ -1,10 +1,9 @@
 using WebsitePsychologist.Services;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebsitePsychologist.Pages
 {
-    public class RegistrationModel(IUserService user) : PageModel
+    public class RegistrationModel(IDbService db, IUserService user) : PageModel
     {
         public void OnGet()
         {

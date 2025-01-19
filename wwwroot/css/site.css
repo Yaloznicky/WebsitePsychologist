@@ -1,17 +1,3 @@
-/*html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}*/
-
 html {
   position: relative;
   min-height: 100%;
@@ -20,8 +6,6 @@ html {
 body {
   margin-bottom: 60px;
 }
-
-
 
 /* ===================================================================*/
 
@@ -99,7 +83,7 @@ body {
 /*=================================== THEME ====================================*/
 
 .div_theme {
-    margin: 20px 150px;
+    margin: 30px 150px;
     display:flex;
     align-items: center;
     text-align:justify-all;
@@ -112,6 +96,16 @@ body {
     box-shadow: 2px 3px 10px 0 #2f79c4;
 }
 
+.theme-text {
+    display: inline-block;
+    width: 97%;
+    text-align: justify;
+    padding: 5px;
+    margin: 10px;
+    font-size: 1.3em;
+}
+
+
 @media (max-width:1000px) {
     body {
         /*background-color: cornflowerblue;*/
@@ -123,10 +117,6 @@ body {
 
     .insade-body-img {
 
-    }
-
-    .insade-body-text {
-        width: 100%
     }
 }
 
@@ -170,7 +160,7 @@ ul>li {
     text-align: justify;
 }
 
-.btn {
+.btn-custom {
     border: none;
     border-radius: 20px;
     height: 80px;
@@ -185,7 +175,7 @@ ul>li {
     cursor: pointer;
 }
 
-    .btn:hover {
+    .btn-custom:hover {
         transform: translate(0,-3px);
         box-shadow: 0 10px 25px #2f79c4;
         color: gold;

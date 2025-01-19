@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebsitePsychologist.Pages
 {
-    public class PrivacyModel(IUserService user) : PageModel
+    public class PrivacyModel(IDbService db, IUserService user) : PageModel
     {
         public void OnGet()
         {

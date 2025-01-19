@@ -1,0 +1,23 @@
+﻿@page "{handler?}"
+@model WebsitePsychologist.Pages.ThemeFormModel
+@{
+}
+<div class="container">
+	<label class="form-label fs-2 text-primary text-center text-warp">Добавление и редактирование информации об услуге</label>
+	<form class="mt-3" method="post">
+		<input type="hidden" name="id" value="@Model.editTheme.Id"/>
+		<div class="mb-3">
+			<label class="form-label fs-5 fw-bold">Название улуги</label>
+			<input type="text" class="form-control" name="themeName" value="@Model.editTheme.ThemeName" />
+		</div>
+		<div class="mb-3">
+			<label class="form-label fs-5 fw-bold">Описание</label>
+			<textarea class="form-control fs-5" rows="10" name="text">@Model.editTheme.Text</textarea>
+		</div>
+
+		<div class="mb-3">
+			<button class="btn btn-primary mt-3 mb-3" type="submit" name="key" value="@Model.key">Сохранить</button>
+			<button class="btn btn-secondary mt-3 mb-3" type="submit">Отменить</button>
+		</div>
+	</form>
+</div>

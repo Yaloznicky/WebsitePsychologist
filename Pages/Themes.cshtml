@@ -1,21 +1,38 @@
-﻿@page
-@model ThemesModel
+﻿@page "{handler?}"
+@model WebsitePsychologist.Pages.ThemesModel
 @{
     ViewData["Title"] = "Услуги";
 }
 
-<div class="body">
-    @foreach (var item in Model.themes)
-    {
-        <div class="div_theme">
-            <img class="img_theme" src=@item.pathImage alt="картинки пока нет">
-            <span class="insade-body-text">
-                <h2>@item.theme</h2>
-                <p class="txt">@item.text</p>
-                <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis doloremque voluptatum repellat maxime libero quia inventore, magnam, aspernatur incidunt unde iste officia earum porro id et quasi dolorem! Quibusdam quod quas hic quos optio reiciendis impedit eum explicabo tenetur pariatur. Culpa, adipisci quasi! Quaerat excepturi, ullam nobis vitae delectus magni.</p>
-                <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis doloremque voluptatum repellat maxime libero quia inventore, magnam, aspernatur incidunt unde iste officia earum porro id et quasi dolorem! Quibusdam quod quas hic quos optio reiciendis impedit eum explicabo tenetur pariatur. Culpa, adipisci quasi! Quaerat excepturi, ullam nobis vitae delectus magni.</p>
-            </span>
+@if(ViewBag.Login == Model.admin)
+{
+    <form method="get" asp-page="ThemeForm">
+        <div class="d-grid gap-2 col-6 mx-auto m-5">
+            <button class="btn btn-primary btn-lg" name="id" value="0">Добавить новую услугу</button>
         </div>
-    }
-</div>
+    </form>
+}
+@foreach (var item in Model.themes)
+{
+    <div class="div_theme">
+        <div class="text-center m-3">
+            <img class="img_theme" src=@item.PathImage alt="картинки пока нет">
+        </div>
+        <div class="theme-text">
+            <h2 class="text-center">@item.ThemeName</h2>
+            <p class="txt">@item.Text</p>
+            @if (ViewBag.Login == Model.admin)
+            {
+                <div class="row justify-content-center">
+                    <form class="col-auto" method="get" asp-page="ThemeForm">
+                        <button class="btn btn-primary" name="id" value="@item.Id">Исправить</button>
+                    </form>
+                    <form class="col-auto" method="get" asp-page-handler="Delete">
+                        <button class="btn btn-danger" name="id" value="@item.Id">Удалить</button>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+}
 

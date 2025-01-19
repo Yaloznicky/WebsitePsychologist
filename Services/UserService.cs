@@ -1,18 +1,22 @@
-﻿namespace WebsitePsychologist.Services
+﻿using WebsitePsychologist.Models;
+
+namespace WebsitePsychologist.Services
 {
     public interface IUserService
     {
-        public string CurrentUser {  get; }
+        public string CurrentUser { get; }
+        public string Admin { get; }
     }
 
-    public class UserService : IUserService
+    public class UserService(IDbService db) : IUserService
     {
-        public string CurrentUser => GetUser();
-
-        public string GetUser()
-        {
-            return "";
+        public string Admin => "Admin";
+        
+        public string CurrentUser { 
+            //get => db.GetUser("Admin").Login!;
+            get => "";
         }
+
     }
 
     public static class ServiceProviderUsersExtentions
