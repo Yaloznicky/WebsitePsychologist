@@ -6,7 +6,7 @@ using WebsitePsychologist.Models;
 namespace WebsitePsychologist.Pages
 {
     [IgnoreAntiforgeryToken]
-    public class ReviewsModel(IDbService db, IUserService user) : PageModel
+    public class ReviewsModel(IDbService db) : PageModel
     {
         public List<Review> reviews = db.GetReviews();
         public List<User> users = db.GetUsers();
@@ -14,7 +14,10 @@ namespace WebsitePsychologist.Pages
         public void OnGet()
         {
             reviews.Reverse();
-            ViewData["Login"] = user.CurrentUser;
+            if (Request.Cookies["Login"] == null)
+                ViewData["Login"] = "";
+            else
+                ViewData["Login"] = User.Identity!.Name;
         }
 
         public IActionResult OnPost(string review)
@@ -22,7 +25,7 @@ namespace WebsitePsychologist.Pages
             Review newReview = new();
             newReview.DateTimeReview = DateTime.Now;
             newReview.Text = review;
-            newReview.Users = db.GetUser(user.CurrentUser);
+            newReview.Users = db.GetUser(User.Identity!.Name!);
             db.SetReview(newReview);
             return RedirectToPage();
         }

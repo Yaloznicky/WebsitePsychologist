@@ -6,7 +6,7 @@ using WebsitePsychologist.Services;
 namespace WebsitePsychologist.Pages
 {
     [IgnoreAntiforgeryToken]
-    public class ThemeFormModel(IDbService db, IUserService user) : PageModel
+    public class ThemeFormModel(IDbService db) : PageModel
     {
         public Theme editTheme = new();
         public string? key;
@@ -22,7 +22,11 @@ namespace WebsitePsychologist.Pages
                 key = "editTheme";
                 editTheme = db.GetTheme(id);
             }
-            ViewData["Login"] = user.CurrentUser;
+
+            if (Request.Cookies["Login"] == null)
+                ViewData["Login"] = "";
+            else
+                ViewData["Login"] = User.Identity!.Name;
         }
 
         public RedirectToPageResult OnPost(string id, string themeName, string text, string key)

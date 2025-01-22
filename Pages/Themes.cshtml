@@ -4,7 +4,7 @@
     ViewData["Title"] = "Услуги";
 }
 
-@if(ViewBag.Login == Model.admin)
+@if (ViewBag.Login == "Admin")
 {
     <form method="get" asp-page="ThemeForm">
         <div class="d-grid gap-2 col-6 mx-auto m-5">
@@ -21,7 +21,7 @@
         <div class="theme-text">
             <h2 class="text-center">@item.ThemeName</h2>
             <p class="txt">@item.Text</p>
-            @if (ViewBag.Login == Model.admin)
+            @if (ViewBag.Login == "Admin")
             {
                 <div class="row justify-content-center">
                     <form class="col-auto" method="get" asp-page="ThemeForm">

@@ -5,15 +5,16 @@ using WebsitePsychologist.Services;
 
 namespace WebsitePsychologist.Pages
 {
-    public class ThemesModel(IDbService db, IUserService user) : PageModel
+    public class ThemesModel(IDbService db) : PageModel
     {
         public List<Theme> themes = db.GetThemes();
-        public string? admin;
 
         public void OnGet() 
         {
-            ViewData["Login"] = user.CurrentUser;
-            admin = user.Admin;
+            if (Request.Cookies["Login"] == null)
+                ViewData["Login"] = "";
+            else
+                ViewData["Login"] = User.Identity!.Name;
         }
 
         public IActionResult OnGetDelete(int id)

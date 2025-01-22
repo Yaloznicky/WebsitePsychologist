@@ -3,12 +3,14 @@ using WebsitePsychologist.Services;
 
 namespace WebsitePsychologist.Pages
 {
-    public class ContactsModel(IDbService db, IUserService user) : PageModel
+    public class ContactsModel(IDbService db) : PageModel
     {
         public void OnGet()
         {
-            ViewData["Login"] = user.CurrentUser;
-
+            if (Request.Cookies["Login"] == null)
+                ViewData["Login"] = "";
+            else
+                ViewData["Login"] = User.Identity!.Name;
         }
     }
 }

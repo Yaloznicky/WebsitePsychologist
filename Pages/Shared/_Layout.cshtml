@@ -10,21 +10,25 @@
 </head>
 <body>
     <header>
-        <div class="singIn">
-            @if (ViewBag.Login != "")
-            {
-                <label class="signIn_lable signIn_blocks">@ViewBag.Login</label>
-                <input type="button" class="signIn_btn signIn_blocks" value="Выход" />
-            }
-            else{
-                <a class="signIn_blocks" href="/Registration">Регистрация нового пользователя</a>
-                <label class="signIn_lable signIn_blocks">Логин:</label>
-                <input type="text" class="signIn_text signIn_blocks" />
-                <label class="signIn_lable signIn_blocks">Пароль:</label>
-                <input type="password" class="signIn_text signIn_blocks " />
-                <input type="button" class="signIn_btn signIn_blocks" value="Вход" />
-            }
-        </div>
+            <div class="singIn">
+                @if (ViewBag.Login != "")
+                {
+                    <label class="signIn_lable signIn_blocks">@ViewBag.Login</label>
+                    <form method="post" asp-page="Registration" asp-page-handler="LogOut">
+                        <input type="submit" class="signIn_btn signIn_blocks" value="Выход" />
+                    </form>
+                }
+                else{
+                    <a class="signIn_blocks" href="/Registration">Регистрация нового пользователя</a>
+                    <form method="post" asp-page="Registration" asp-page-handler="LogIn">
+                        <label class="signIn_lable signIn_blocks">Логин:</label>
+                        <input type="text" class="signIn_text signIn_blocks" name="Login" />
+                        <label class="signIn_lable signIn_blocks">Пароль:</label>
+                        <input type="password" class="signIn_text signIn_blocks" name="Password" />
+                        <input type="submit" class="signIn_btn signIn_blocks" value="Вход" />
+                    </form>
+                }
+            </div>
 
         <div class="head">
             <div>

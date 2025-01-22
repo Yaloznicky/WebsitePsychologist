@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebsitePsychologist.Models;
+﻿using WebsitePsychologist.Models;
 
 namespace WebsitePsychologist.Services
 {

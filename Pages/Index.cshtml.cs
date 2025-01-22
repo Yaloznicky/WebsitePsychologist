@@ -3,13 +3,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebsitePsychologist.Pages
 {
-    public class IndexModel(ILogger<IndexModel> logger, IDbService db, IUserService user) : PageModel
+    public class IndexModel(ILogger<IndexModel> logger, IDbService db) : PageModel
     {
         private readonly ILogger<IndexModel> _logger = logger;
 
         public void OnGet()
         {
-            ViewData["Login"] = user.CurrentUser;
+            if (Request.Cookies["Login"] == null)
+                ViewData["Login"] = "";
+            else
+                ViewData["Login"] = User.Identity!.Name;
         }
     }
 }

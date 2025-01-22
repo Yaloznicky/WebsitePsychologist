@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using WebsitePsychologist.Models;
 using WebsitePsychologist.Services;
@@ -21,9 +22,13 @@ builder.Services.AddDbContext<ApplicationContext>(
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDataBaseService();
-builder.Services.AddUsersService();
-//builder.Services.AddThemesService();
-//builder.Services.AddReviewsService();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "Login";
+    });
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -40,6 +45,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
