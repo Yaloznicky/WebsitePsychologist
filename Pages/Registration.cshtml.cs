@@ -53,7 +53,7 @@ namespace WebsitePsychologist.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            if(Password == null) ModelState.AddModelError("ConfirmPassword", "Проверьте правильность ввода паролей");
+            if(Password == null || ConfirmPassword != Password) ModelState.AddModelError("ConfirmPassword", "Проверьте правильность ввода паролей");
 
             if (ModelState.IsValid)
             {

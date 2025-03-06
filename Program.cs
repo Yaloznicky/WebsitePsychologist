@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 string connection = builder.Configuration.GetConnectionString("Default")!;
 // Получаем версию сервера. Только для MySQL.
 ServerVersion serverVerstion = ServerVersion.AutoDetect(connection);
-// Добавляем контекст ApplicationContext  качестве сервиса в приложение
+// Добавляем контекст ApplicationContext в качестве сервиса в приложение
 builder.Services.AddDbContext<ApplicationContext>(
         dbContextOption => dbContextOption
             .UseMySql(connection, serverVerstion)
